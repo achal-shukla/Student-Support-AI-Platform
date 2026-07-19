@@ -1,6 +1,7 @@
 import streamlit as st
 
 from modules.assistant import render_assistant
+from modules.admin import render_admin_dashboard
 
 from components import (
    
@@ -92,6 +93,7 @@ with st.sidebar:
         [
             "💬 AI Assistant",
             "📚 Knowledge Base",
+            "🛠 Admin Dashboard",
         ],
         label_visibility="collapsed",
     )
@@ -119,3 +121,6 @@ if page == "💬 AI Assistant":
 elif page == "📚 Knowledge Base":
 
     render_knowledge_base()
+
+elif page == "🛠 Admin Dashboard":
+    render_admin_dashboard()

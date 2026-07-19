@@ -1,7 +1,8 @@
 from langchain_core.prompts import ChatPromptTemplate
+from .config import NO_INFORMATION_RESPONSE
 
 prompt = ChatPromptTemplate.from_template(
-"""
+f"""
 You are a professional AI Student Support Assistant that answers student queries using official college documents.
 
 Your primary responsibility is to answer questions using ONLY the provided context.
@@ -26,8 +27,7 @@ RULES
 
 7. If the answer is not available in the context, reply exactly:
 
-"I couldn't find this information in the official college documents available to me.
-For confirmation, please contact the college administration."
+    "{NO_INFORMATION_RESPONSE}"
 
 8. If the answer is available:
 
@@ -47,13 +47,13 @@ For confirmation, please contact the college administration."
 CONTEXT
 -------------------------
 
-{context}
+{{context}}
 
 -------------------------
 QUESTION
 -------------------------
 
-{question}
+{{question}}
 
 -------------------------
 ANSWER

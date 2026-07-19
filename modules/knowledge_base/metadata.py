@@ -27,7 +27,7 @@ def load_metadata():
         return {
             "documents": 0,
             "chunks": 0,
-            
+            "last_updated": None,
         }
 
     with open(METADATA_FILE, "r", encoding="utf-8") as f:

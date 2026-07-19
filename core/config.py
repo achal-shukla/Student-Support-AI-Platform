@@ -82,3 +82,9 @@ COLLEGE_PATTERNS = [
     # AKTU
     r"\bDR\.?\s*A\.?P\.?J\.?\s*ABDUL\s*KALAM(?:\s+[A-Za-z&().,-]+){0,15}",
 ]
+
+
+NO_INFORMATION_RESPONSE = (
+    "I couldn't find this information in the official college documents available to me. "
+    "For confirmation, please contact the college administration."
+)
