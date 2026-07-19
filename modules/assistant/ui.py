@@ -1,28 +1,26 @@
 import streamlit as st
-from core.pipeline import ask_question
+from .manager import process_query
 from components import (
     hero_section,
     feature_cards,
     question_cards,
 )
 
-def render_assistant():
-    
-    
-
-    # Hero
+def render_header():
+    """Render the assistant header section."""
     hero_section()
-
-    # Features
     feature_cards()
 
-    # Popular Questions
-    if not st.session_state.messages:
-        selected_question = question_cards()
-    else:
-        selected_question = None
 
-    # Conversation History
+def render_popular_questions():
+    """Render suggested questions before the conversation starts."""
+    if not st.session_state.messages:
+        return question_cards()
+    return None
+
+def render_chat_history():
+    """Render the conversation history."""
+
     for message in st.session_state.messages:
 
         with st.chat_message(message["role"]):
@@ -38,47 +36,62 @@ def render_assistant():
                         for source in sources:
                             st.write(f"• {source}")
 
-    # Chat Input
+def handle_chat_interaction(selected_question):
+    """Handle a new chat interaction."""
+
     typed_question = st.chat_input(
         "Ask about admissions, hostel, fees, scholarships..."
     )
 
     query = selected_question or typed_question
 
-    # Process Query
-    if query:
+    if not query:
+        return
 
-        # User Message
-        st.session_state.messages.append(
-            {
-                "role": "user",
-                "content": query,
-            }
-        )
+    # User Message
+    st.session_state.messages.append(
+        {
+            "role": "user",
+            "content": query,
+        }
+    )
 
-        with st.chat_message("user"):
-            st.markdown(query)
+    with st.chat_message("user"):
+        st.markdown(query)
 
-        # Assistant Response
-        with st.chat_message("assistant"):
+    # Assistant Response
+    with st.chat_message("assistant"):
 
-            with st.spinner("Looking through official college documents..."):
-                result = ask_question(query)
+        with st.spinner("Looking through official college documents..."):
+            result = process_query(query)
 
-            st.markdown(result["answer"])
+        st.markdown(result["answer"])
 
-            if result["sources"]:
-                with st.expander("📄 Sources"):
-                    for source in result["sources"]:
-                        st.write(f"• {source}")
+        if result["sources"]:
+            with st.expander("📄 Sources"):
+                for source in result["sources"]:
+                    st.write(f"• {source}")
 
-        # Save Assistant Response
-        st.session_state.messages.append(
-            {
-                "role": "assistant",
-                "content": result["answer"],
-                "sources": result["sources"],
-            }
-        )
+    st.session_state.messages.append(
+        {
+            "role": "assistant",
+            "content": result["answer"],
+            "sources": result["sources"],
+        }
+    )
 
-        st.rerun()
+    st.rerun()
+
+def render_assistant():
+
+    render_header()
+
+    selected_question = render_popular_questions()
+
+    # Conversation History
+
+    render_chat_history()
+
+    # Chat Input
+    handle_chat_interaction(selected_question)
+    
