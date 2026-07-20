@@ -1,6 +1,6 @@
 from modules.knowledge_base.manager import get_knowledge_base_stats
 from pathlib import Path
-
+from core.logger import load_logs
 from modules.knowledge_base.indexer import rebuild_index
 
 #Dashboard -------------------------------------------------------------
@@ -10,13 +10,15 @@ def get_dashboard_stats():
 
     kb_stats = get_knowledge_base_stats()
 
+    logs = load_logs()
+
     return {
         "documents": kb_stats["documents"],
         "chunks": kb_stats["chunks"],
         "last_updated": kb_stats.get("last_updated", "Never"),
-        "questions": 0,                  # Placeholder
-        "vector_store": "Loaded",        # Placeholder
-        "llm": "Connected",              # Placeholder
+        "questions": len(logs),
+        "vector_store": "Loaded",
+        "llm": "Connected",
     }
 
 # Document -------------------------------------------------------------                  

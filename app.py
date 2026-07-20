@@ -2,6 +2,7 @@ import streamlit as st
 
 from modules.assistant import render_assistant
 from modules.admin import render_admin_dashboard
+from modules.admin.knowledge_gaps import show_knowledge_gaps
 
 from components import (
    
@@ -91,7 +92,7 @@ with st.sidebar:
     page = st.radio(
         "",
         [
-            "💬 AI Assistant",
+            "💬 AI Assistant", 
             "📚 Knowledge Base",
             "🛠 Admin Dashboard",
         ],
@@ -124,3 +125,6 @@ elif page == "📚 Knowledge Base":
 
 elif page == "🛠 Admin Dashboard":
     render_admin_dashboard()
+
+elif page == "Knowledge Gaps":
+    show_knowledge_gaps()

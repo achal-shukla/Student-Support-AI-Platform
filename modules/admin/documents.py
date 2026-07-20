@@ -9,7 +9,13 @@ from .manager import (
 def render_documents():
     """Render the document management page."""
 
-    st.subheader("📄 Document Management")
+    st.title("📄 Document Management")
+
+    st.caption(
+        "Manage the documents used by the AI assistant to answer student queries."
+    )
+
+    st.divider()
 
     documents = get_documents()
 
@@ -17,21 +23,36 @@ def render_documents():
         st.info("No documents found.")
         return
 
-    st.write(f"**Total Documents:** {len(documents)}")
+    col1, col2 = st.columns([1, 5])
+
+    with col1:
+        st.metric(
+            "Documents",
+            len(documents)
+        )
 
     st.divider()
+
+    st.subheader("📚 Available Documents")
+
 
     for document in documents:
         col1, col2 = st.columns([8, 1])
 
+
         with col1:
-            st.write(
-                f"**{document['category']}** • 📄 {document['name']}"
+            st.markdown(
+                f"""
+             **📄 {document['name']}**
+
+                🏷️ Category: `{document['category']}`
+                 """
             )
+
 
         with col2:
             if st.button(
-               "🗑",
+               "🗑 Delete",
                 key=f"delete_{document['name']}",
                 help="Delete document",
             ):
@@ -42,3 +63,9 @@ def render_documents():
                     st.rerun()
                 else:
                     st.error(message)
+        
+
+
+    st.info(
+         "💡 Deleting a document automatically rebuilds the knowledge base to keep search results up to date."
+    )

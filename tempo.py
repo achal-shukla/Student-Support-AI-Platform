@@ -1,3 +1,3 @@
-from core.logger import get_statistics
+from core.logger import get_unanswered_questions
 
-print(get_statistics())
+print(get_unanswered_questions())

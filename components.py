@@ -149,7 +149,7 @@ def feature_cards():
             )
            st.markdown(html, unsafe_allow_html=True)
 
-
+    st.divider()
 # ==========================================
 # Question Cards
 # ==========================================
@@ -174,7 +174,7 @@ def question_card(item):
 
 def question_cards():
 
-    st.subheader("🎓 Popular Student Questions")
+    st.subheader(" Frequently Asked Questions (FAQ)")
 
     col1, col2 = st.columns(2)
 

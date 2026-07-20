@@ -173,7 +173,9 @@ def _calculate_categories(logs):
         most_asked_category = category_counter.most_common(1)[0][0]
 
     return {
+
         "most_asked_category": most_asked_category,
+        "category_counts": dict(category_counter),
     }
 
 
@@ -195,7 +197,9 @@ def _calculate_documents(logs):
         most_accessed_document = document_counter.most_common(1)[0][0]
 
     return {
+
         "most_accessed_document": most_accessed_document,
+        "document_counts": dict(document_counter),
     }
 
 
@@ -254,3 +258,24 @@ def get_statistics():
     statistics.update(_calculate_knowledge_gaps(logs))
 
     return statistics
+
+
+def get_unanswered_questions():
+    """
+    Return all unanswered questions sorted by newest first.
+    """
+
+    logs = load_logs()
+
+    unanswered_questions = [
+        log
+        for log in logs
+        if log.get("status") == "failed"
+    ]
+
+    unanswered_questions.sort(
+        key=lambda log: log["timestamp"],
+        reverse=True
+    )
+
+    return unanswered_questions
