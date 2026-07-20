@@ -1,336 +1,285 @@
-# 🎓 Student Support AI
-
-> An AI-powered student support portal built with **Retrieval-Augmented Generation (RAG)** that answers student queries using official institutional documents while providing **grounded, transparent, and privacy-aware** responses.
-
-<p align="center">
-
-A Retrieval-Augmented Generation (RAG) application for answering student queries using official institutional documents.
-
-</p>
-
-<p align="center">
-
-![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
-![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit)
-![LangChain](https://img.shields.io/badge/LangChain-RAG-success)
-![License](https://img.shields.io/badge/License-MIT-yellow)
-
-</p>
-
-<p align="center">
-
-<a href="YOUR_STREAMLIT_LINK">🌐 Live Demo</a> •
-<a href="#features">✨ Features</a> •
-<a href="#architecture">🏗 Architecture</a> •
-<a href="#installation">⚙ Installation</a>
-
-</p>
+# 🎓 Student Support AI Platform
+An AI-powered Retrieval-Augmented Generation (RAG) platform that enables students to query institutional information from official PDF documents using natural language while providing administrators with document management, analytics, and knowledge gap insights.
 
 ---
 
-![Student Support AI](assets/screenshots/home.png)
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![Streamlit](https://img.shields.io/badge/Streamlit-Deployed-red)
+![LangChain](https://img.shields.io/badge/LangChain-RAG-green)
+![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
----
+----
+## 📑 Table of Contents
 
-# 📖 Overview
+- [Overview](#overview)
+- [Live Demo](#live-demo)
+- [Features](#features)
+- [Technology Stack](#technology-stack)
+- [System Architecture](#system-architecture)
+- [RAG Workflow](#rag-workflow)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [Deployment](#deployment)
+- [Future Scope](#future-scope)
+- [Author](#author)
 
-Student Support AI is a Retrieval-Augmented Generation (RAG) application that enables students to ask questions about admissions, academics, scholarships, hostel facilities, placements, and other campus-related topics using official institutional documents as its knowledge base.
+----
 
-The application combines **FAISS semantic search**, **Maximum Marginal Relevance (MMR)** retrieval, and **Cohere Command-A** to generate grounded responses based solely on retrieved document context. Every answer includes its supporting source document(s), enabling users to verify the origin of the information.
 
-To improve portability and protect organizational identity, the application incorporates a custom **Privacy-Aware Anonymization Layer** that removes institution-specific identifiers before responses are presented to users.
+## 📖 Overview
 
-This project demonstrates how modern LLM applications can combine semantic retrieval, grounded generation, privacy-aware processing, and source attribution to build reliable AI assistants over institutional knowledge bases.
+Student Support AI Platform is an AI-powered question-answering system designed to help students quickly access institution-specific information.
 
----
+Instead of manually searching through multiple PDF documents, students can ask questions in natural language and receive responses grounded in official institutional documents using a Retrieval-Augmented Generation (RAG) pipeline.
 
-# 🎯 Key Objectives
+The platform also provides an administrative interface for managing the knowledge base, monitoring usage analytics, and identifying knowledge gaps to continuously improve the quality of responses.
 
-- Build a reliable question-answering system over institutional documents.
-- Reduce hallucinations through grounded response generation.
-- Improve transparency through source attribution.
-- Preserve institutional privacy using an anonymization layer.
-- Provide a clean and intuitive user experience.
 
----
+-----
 
 ## 🚀 Live Demo
 
-https://student-support-assistant-ai.streamlit.app
+Try the live application here:
 
----
+🔗 **Live App:** https://your-streamlit-app.streamlit.app
 
-# 💡 Why This Project?
+> **Note**
+> The application uses Retrieval-Augmented Generation (RAG) to answer questions from the uploaded institutional documents. Response quality depends on the available knowledge base.
 
-The goal of this project was not simply to build another RAG chatbot, but to design a student support system that demonstrates practical AI engineering principles. Throughout development, the focus extended beyond accurate question answering to include response reliability, transparency, privacy, and a polished user experience.
+-----
 
-By combining semantic retrieval, grounded response generation, source attribution, Maximum Marginal Relevance (MMR) retrieval, predefined response handling, and a custom privacy-aware anonymization layer, this project explores how modern LLM applications can be designed to be more trustworthy, maintainable, and reusable.
+## ✨ Features
 
-The resulting application showcases how Retrieval-Augmented Generation (RAG) can be applied to real-world institutional support while emphasizing engineering decisions that improve both user trust and system quality.
+### 🤖 AI Assistant
+- Natural language question answering
+- Retrieval-Augmented Generation (RAG)
+- Context-aware responses from institutional documents
+- Source document citations
 
---- 
+### 📚 Knowledge Management
+- PDF upload and indexing
+- Automatic text chunking
+- Semantic embedding generation
+- FAISS vector search
 
-# ✨ Features
+### 📊 Admin Dashboard
+- Document management
+- Usage analytics
+- Knowledge gap detection
+- System health overview
 
-- 📚 Retrieval-Augmented Generation (RAG)
-- 🔎 FAISS Semantic Search with Maximum Marginal Relevance (MMR)
-- 🤖 Grounded response generation using Cohere Command-A
-- 📄 Automatic source attribution for every answer
-- 🔒 Privacy-aware anonymization layer
-- 💬 Predefined response handling for greetings
-- ⚡ Interactive Streamlit interface
-- 🎨 Responsive UI with reusable custom components
+### ⚙️ System
+- Modular architecture
+- JSON interaction logging
+- Configurable knowledge base
+- Responsive Streamlit Interface
 
-> [!NOTE]
-> Responses are generated only from retrieved document context. If sufficient information is unavailable, the chatbot responds accordingly instead of generating unsupported information.
+----
 
-> [!TIP]
-> Every response includes the supporting source document(s) used during retrieval.
-
----
-
-# 🏗 Architecture
-
-```text
-                     User Question
-                           │
-                           ▼
-              FAISS Retriever (MMR)
-                           │
-                           ▼
-               Retrieve Relevant Chunks
-                           │
-                           ▼
-                Prompt Construction
-                           │
-                           ▼
-         Privacy / Anonymization Layer
-                           │
-                           ▼
-               Cohere Command-A LLM
-                           │
-                           ▼
-           Answer + Source Documents
-```
-
-> [!IMPORTANT]
-> The anonymization layer replaces institution-specific identifiers with neutral references such as **"the college"**, allowing the application to remain reusable across different organizations.
-
----
-
-## 📸 Application Preview
-
-## 🏠 Home Page
-
-Shows the landing page with the hero section and key capabilities.
-
-![Home](assets/screenshots/home.png)
-
----
-
-## 🎓 Popular Student Questions
-
-Quick-access cards for common student queries with reusable custom UI components.
-
-![Sidebar](assets/screenshots/question-cards.png)
-
----
-
-## 💬 Chat Interface
-
-Grounded AI responses generated from retrieved document context.
-
-![Chat](assets/screenshots/chat.png)
-
----
-
-## 📄 Source Attribution
-
-Every response includes supporting document references to improve transparency.
-
-![Sources](assets/screenshots/sources.png)
-
----
-
-# 🛠 Tech Stack
+## 🛠 Technology Stack
 
 | Category | Technology |
 |-----------|------------|
-| Language | Python |
+| Programming Language | Python 3.11|
 | Frontend | Streamlit |
 | Framework | LangChain |
 | LLM | Cohere Command-A |
-| Embeddings | Sentence Transformers |
+| Embeddings | Sentence Transformers (all-MiniLM-L6-v2) |
 | Vector Store | FAISS |
 | Retrieval | Maximum Marginal Relevance (MMR) |
-| Document Loader | PyPDF |
+| Document Loader | PyPDFLoader |
+| Logging | JSON |
 
----
+----
+## 🏗 System Architecture
 
-# ⚙ Installation
+The platform follows a modular Retrieval-Augmented Generation (RAG) architecture.
 
-> [!TIP]
-> If you're using your own documents, place the PDF files inside the `data/` directory before building the vector database.
+<p align="center">
+    <img src="assets/architecture.png" width="850">
+</p>
 
-## Clone the repository
+The application separates document processing, retrieval, prompting, and administration into independent modules, making the system easier to maintain and extend.
+----
 
-```bash
-git clone https://github.com/achal-shukla/Student-Support-AI.git
-cd Student-Support-AI
+## 📸 Screenshots
+
+### Home Page
+
+<p align="center">
+  <img src="assets/screenshots/home.png" width="900">
+</p>
+
+### AI Assistant
+
+<p align="center">
+  <img src="assets/screenshots/assistant.png" width="900">
+</p>
+
+### Analytics Dashboard
+
+<p align="center">
+  <img src="assets/screenshots/analysis.png" width="900">
+</p>
+
+### Knowledge Gaps
+
+<p align="center">
+  <img src="assets/screenshots/knowledge-gaps.png" width="900">
+</p>
+
+----
+
+## 🔄 RAG Workflow
+
+1. **Document Processing**
+   - Upload institutional PDF documents.
+   - Extract and clean text.
+   - Split content into manageable chunks.
+
+2. **Embedding Generation**
+   - Convert text chunks into vector embeddings using **all-MiniLM-L6-v2**.
+
+3. **Vector Storage**
+   - Store embeddings in a **FAISS** vector database for efficient semantic retrieval.
+
+4. **User Query**
+   - The user submits a question through the Streamlit interface.
+
+5. **Semantic Retrieval**
+   - The query is embedded and matched against the most relevant document chunks in FAISS.
+
+6. **Response Generation**
+   - Retrieved context is combined with the user's question and sent to the **Cohere Chat** model.
+
+7. **Grounded Answer**
+   - The AI generates a response based only on the retrieved institutional information, helping reduce hallucinations.
+
+----
+
+## 📂 Project Structure
+
+```text
+Student-Support-AI/
+│
+├── app.py
+├── assets/
+├── config/
+├── core/
+│   ├── document_processor.py
+│   ├── faiss_manager.py
+│   ├── logger.py
+│   └── prompt.py
+│
+├── modules/
+│   ├── assistant/
+│   ├── admin/
+│   └── knowledge_base/
+│
+├── data/
+├── logs/
+├── requirements.txt
+└── README.md
 ```
 
-## Install dependencies
+----
+
+
+
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Python 3.11 or later
+- Cohere API Key
+
+### Installation
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/achal-shukla/Student-Support-AI-Platform.git
+cd Student-Support-AI-Platform
+```
+
+2. Create a virtual environment
+
+```bash
+python -m venv .venv
+```
+
+**Windows**
+
+```bash
+.venv\Scripts\activate
+```
+
+**Linux / macOS**
+
+```bash
+source .venv/bin/activate
+```
+
+3. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## Configure the API key
+4. Configure your Cohere API key
 
-Create:
-
-```text
-.streamlit/secrets.toml
-```
-
-Add:
+Create a `.streamlit/secrets.toml` file:
 
 ```toml
-COHERE_API_KEY="YOUR_API_KEY"
+COHERE_API_KEY="your_api_key_here"
 ```
 
-> [!IMPORTANT]
-> API keys are managed securely using **Streamlit Secrets** and are never stored in the repository.
-
-## Add your documents
-
-Place PDF documents inside:
-
-```text
-data/
-```
-
-## Build the vector database
-
-```bash
-python build_index.py
-```
-
-## Run the application
+5. Start the application
 
 ```bash
 streamlit run app.py
 ```
 
----
+## 🌐 Deployment
 
-# 🚀 Usage
+The application is deployed using **Streamlit Community Cloud**.
 
-1. Launch the application.
-2. Ask a question.
-3. Relevant document chunks are retrieved.
-4. Cohere Command-A generates a grounded response.
-5. Supporting source document(s) are displayed below every answer.
+### Deployment Steps
 
-> [!TIP]
-> Whenever new documents are added, rebuild the vector database by running:
+1. Push the project to GitHub.
+2. Create a new app on Streamlit Community Cloud.
+3. Connect the GitHub repository.
+4. Add the `COHERE_API_KEY` under **Secrets**.
+5. Deploy the application.
 
-```bash
-python build_index.py
-```
+The live demo is available in the **Live Demo** section above.
 
 ---
 
-# 📂 Project Structure
+## 🔮 Future Scope
 
-```text
-Student-Support-AI/
+Future enhancements planned for the platform include:
 
-├── assets/
-│   ├── icons/
-│   └── screenshots/
-├── data/
-├── vector_store/
-├── app.py
-├── build_index.py
-├── chain.py
-├── components.py
-├── config.py
-├── faiss_store.py
-├── inspect_retrieval.py
-├── llm.py
-├── prompt.py
-├── rag.py
-├── responses.py
-├── styles.css
-├── text_cleaner.py
-├── requirements.txt
-├── README.md
-└── .gitignore
-```
+- User authentication and role-based access
+- Chat history and conversation management
+- Hybrid retrieval (Keyword + Semantic Search)
+- Re-ranking for improved retrieval accuracy
+- Database-backed logging and analytics
+- Multi-language document support
+- Feedback-driven knowledge base improvement
+- Docker containerization and CI/CD pipeline
 
 ---
 
-# ⚙ Engineering Highlights
+## 👨‍💻 Author
 
-### 🎯 Grounded Response Generation
+**Achal Shukla**
 
-The chatbot generates responses only from retrieved document context, reducing hallucinations and improving answer reliability.
+- GitHub: https://github.com/<your-username>
+- LinkedIn: https://linkedin.com/in/<your-profile>
 
----
-
-### 🔒 Privacy-Aware Anonymization
-
-A custom anonymization layer protects institutional identity by replacing organization-specific references with neutral terminology.
-
-**It also:**
-
-- Replaces institution names with **"the college"**
-- Intercepts institution identity questions
-- Sanitizes retrieved context before generation
-- Makes the application reusable across different organizations
+If you found this project helpful, consider giving it a ⭐ on GitHub.
 
 ---
 
-### 🔎 Maximum Marginal Relevance (MMR)
-
-Instead of standard similarity search, the application uses **MMR retrieval** to improve diversity among retrieved document chunks and reduce redundant context.
-
----
-
-### 📄 Source Transparency
-
-Every generated response includes its supporting source document(s), enabling users to verify where the information originated.
-
----
-
-### 💬 Intent-Based Greeting Handling
-
-Common greetings are handled through predefined responses instead of invoking the retrieval pipeline, resulting in faster and more natural interactions.
-
----
-
-# 🚀 Future Improvements
-
-- [ ] Clickable PDF citations
-- [ ] Conversation memory
-- [ ] Admin portal for document uploads
-- [ ] Authentication and user roles
-- [ ] Citation highlighting
-- [ ] Multi-institution support
-
----
-
-# 📜 License
-
-This project is licensed under the MIT License.
-
----
-
-# 🙏 Acknowledgements
-
-<p align="center">
-
-Built with ❤️ using Python, Streamlit, LangChain, FAISS, Sentence Transformers, and Cohere Command-A.
-
-</p>
