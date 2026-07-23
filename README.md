@@ -76,7 +76,7 @@ Try the live application here:
 
 ----
 
-## 🛠 Technology Stack
+## • Technology Stack
 
 | Category | Technology |
 |-----------|------------|
@@ -91,7 +91,7 @@ Try the live application here:
 | Logging | JSON |
 
 ----
-## 🏗 System Architecture
+## • System Architecture
 
 The platform follows a modular Retrieval-Augmented Generation (RAG) architecture.
 
@@ -102,7 +102,7 @@ The platform follows a modular Retrieval-Augmented Generation (RAG) architecture
 The application separates document processing, retrieval, prompting, and administration into independent modules, making the system easier to maintain and extend.
 ----
 
-##  Screenshots
+# • Screenshots
 
 ### Home Page
 
