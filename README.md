@@ -1,4 +1,4 @@
-# 🎓 Student Support AI Platform
+#  Student Support AI Platform
 An AI-powered Retrieval-Augmented Generation (RAG) platform that enables students to query institutional information from official PDF documents using natural language while providing administrators with document management, analytics, and knowledge gap insights.
 
 ---
@@ -9,7 +9,7 @@ An AI-powered Retrieval-Augmented Generation (RAG) platform that enables student
 ![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
 ----
-## 📑 Table of Contents
+##  Table of Contents
 
 - [Overview](#overview)
 - [Live Demo](#live-demo)
@@ -26,7 +26,7 @@ An AI-powered Retrieval-Augmented Generation (RAG) platform that enables student
 ----
 
 
-## 📖 Overview
+##  Overview
 
 Student Support AI Platform is an AI-powered question-answering system designed to help students quickly access institution-specific information.
 
@@ -37,7 +37,7 @@ The platform also provides an administrative interface for managing the knowledg
 
 -----
 
-## 🚀 Live Demo
+##  Live Demo
 
 Try the live application here:
 
@@ -48,27 +48,27 @@ Try the live application here:
 
 -----
 
-## ✨ Features
+## • Features
 
-### 🤖 AI Assistant
+###  AI Assistant
 - Natural language question answering
 - Retrieval-Augmented Generation (RAG)
 - Context-aware responses from institutional documents
 - Source document citations
 
-### 📚 Knowledge Management
+###  Knowledge Management
 - PDF upload and indexing
 - Automatic text chunking
 - Semantic embedding generation
 - FAISS vector search
 
-### 📊 Admin Dashboard
+###  Admin Dashboard
 - Document management
 - Usage analytics
 - Knowledge gap detection
 - System health overview
 
-### ⚙️ System
+###  System
 - Modular architecture
 - JSON interaction logging
 - Configurable knowledge base
@@ -102,7 +102,7 @@ The platform follows a modular Retrieval-Augmented Generation (RAG) architecture
 The application separates document processing, retrieval, prompting, and administration into independent modules, making the system easier to maintain and extend.
 ----
 
-## 📸 Screenshots
+##  Screenshots
 
 ### Home Page
 
@@ -130,7 +130,7 @@ The application separates document processing, retrieval, prompting, and adminis
 
 ----
 
-## 🔄 RAG Workflow
+## • RAG Workflow
 
 1. **Document Processing**
    - Upload institutional PDF documents.
@@ -157,7 +157,7 @@ The application separates document processing, retrieval, prompting, and adminis
 
 ----
 
-## 📂 Project Structure
+## • Project Structure
 
 ```text
 Student-Support-AI/
@@ -187,7 +187,7 @@ Student-Support-AI/
 
 
 
-## 🚀 Getting Started
+## • Getting Started
 
 ### Prerequisites
 
@@ -241,7 +241,7 @@ COHERE_API_KEY="your_api_key_here"
 streamlit run app.py
 ```
 
-## 🌐 Deployment
+##  Deployment
 
 The application is deployed using **Streamlit Community Cloud**.
 
@@ -257,7 +257,7 @@ The live demo is available in the **Live Demo** section above.
 
 ---
 
-## 🔮 Future Scope
+## • Future Scope
 
 Future enhancements planned for the platform include:
 
@@ -272,7 +272,7 @@ Future enhancements planned for the platform include:
 
 ---
 
-## 👨‍💻 Author
+##  Author
 
 **Achal Shukla**
 
