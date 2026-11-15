@@ -41,7 +41,7 @@ The platform also provides an administrative interface for managing the knowledg
 
 Try the live application here:
 
-🔗 **Live App:** https://your-streamlit-app.streamlit.app
+🔗 **Live App:** https://student-support-ai-platform.streamlit.app/
 
 > **Note**
 > The application uses Retrieval-Augmented Generation (RAG) to answer questions from the uploaded institutional documents. Response quality depends on the available knowledge base.
